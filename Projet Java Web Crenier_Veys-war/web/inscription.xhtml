@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                template="./simpleTemplate.xhtml">
+
+    <ui:define name="top">
+        
+    </ui:define>
+
+    <ui:define name="content">
+        <h1> Inscription </h1><br/><br/>
+        <p><h:outputLabel class="label" for="lastname">nom:* </h:outputLabel>   <h:inputText  id="lastname"></h:inputText></p>
+        <p><h:outputLabel class="label" for="firstname">prénom:*</h:outputLabel><h:inputText  id="firstname"></h:inputText></p>
+        <h3>adresse</h3>
+        <p><h:outputLabel class="label" for="street">rue:*</h:outputLabel><h:inputText  id="street"></h:inputText></p>
+        <p><h:outputLabel class="label" for="num">num:*</h:outputLabel><h:inputText id="num"></h:inputText></p>
+        <p><h:outputLabel class="label" for="locality">localité:*</h:outputLabel><h:inputText  id="locality"></h:inputText></p>
+        <p><h:outputLabel class="label" for="cp">code postal:*</h:outputLabel><h:inputText id="cp"></h:inputText></p>
+        <p><h:outputLabel class="label" for="tel">téléphone:</h:outputLabel><h:inputText  id="tel"></h:inputText></p>
+        <p><h:outputLabel class="label" for="mail">e-mail:*</h:outputLabel><h:inputText  id="mail"></h:inputText></p>
+        <p><h:outputLabel class="label" for="pass">mot de passe:*</h:outputLabel><h:inputSecret  id="pass"></h:inputSecret></p>
+        <p><h:outputLabel class="label" for="passVerif">mot de passe:*</h:outputLabel><h:inputSecret  id="passVerif"></h:inputSecret></p>
+        <p> * = champs obligatoires </p>
+    </ui:define>
+
+</ui:composition>

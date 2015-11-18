@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top"> </ui:insert>
+             <ui:insert name="top">Top</ui:insert>
+            <li class="menu"> <h:link outcome="faces/index">  Accueil</h:link></li> 
+            <li class="menu"> <h:link outcome="faces/magasin">Magasin</h:link></li> 
+            <h:form id="connexion">
+             <h:commandButton id="connexionButton" value="Connexion" action="faces/connexion" ></h:commandButton>
+            </h:form>
+            <img  id="fr" src="resources/css/fr.png"/>
+            <img id="eng" src="resources/css/eng.png"/>
+            <h:link outcome="faces/panier"><img id="panierImg" src="resources/css/panier.png"/></h:link>
+        </div>
+       
+        <div id="left">
+            <ui:insert name="left"></ui:insert>
+            <h2>Catégorie</h2>
+            <p id="acier" class="type"><h:link>Acier</h:link></p>
+            <p id="combat" class="type"><h:link>Combat</h:link></p>
+            <p id="dragon" class="type"><h:link>Dragon</h:link></p>
+            <p id="eau" class="type"><h:link>Eau</h:link></p>
+            <p id="elec" class="type"><h:link>Electrik</h:link></p>
+            <p id="fee" class="type"><h:link>Fée</h:link></p>
+            <p id="feu" class="type"><h:link>Feu</h:link></p>
+            <p id="glace" class="type"><h:link>Glace</h:link></p>
+            <p id="insecte" class="type"><h:link>Insecte</h:link></p>
+            <p id="normal" class="type"><h:link>Normal</h:link></p>
+            <p id="Plante" class="type"><h:link>Plante</h:link></p>
+            <p id="poison" class="type"><h:link>Poison</h:link></p>
+            <p id="psy" class="type"><h:link>Psy</h:link></p>
+            <p id="roche" class="type"><h:link>Roche</h:link></p>
+            <p id= "sol" class="type"><h:link>Sol</h:link></p>
+            <p id= "spectre" class="type"><h:link>Spectre</h:link></p>
+            <p id= "tenebre" class="type"><h:link>Ténèbre</h:link></p>
+            <p id= "vol" class="type"><h:link>Vol</h:link></p>
+        </div>
+        <div id="content" class="left_content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+    </h:body>
+
+</html>

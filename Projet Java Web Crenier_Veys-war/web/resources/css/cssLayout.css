@@ -1,0 +1,347 @@
+body{
+    background-image: url("background.png");
+    min-width: 1000px;
+    
+}
+
+#top{
+    position: absolute;
+    width: 99%;
+    height: 20%;
+    background-image: url("header.png");
+    background-repeat: no-repeat;
+}
+
+#txtAcc{
+    position: absolute;
+    top: 75%;
+    left: 34%;
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    font-family: Arial;
+}
+
+#fr{
+    position :absolute;
+    top:2%;
+    right: 5%;
+    width: 2%;
+    height: 10%;
+    
+}
+
+#eng{
+    position :absolute;
+    top:2%;
+    right: 9%;
+    width: 2%;
+    height: 10%;
+}
+
+#panierImg{
+    position :absolute;
+    top:2%;
+    right: 13%;
+    width:60px;
+    height: 60px;
+}
+
+.menu{
+    position: relative;
+    display: inline;
+    margin-right: 25px;
+    color: white;
+    font-size: 14pt;
+    font-family: Arial; 
+    top: 50px;
+    left: 20px;
+}
+
+#pokeball{
+    position: absolute;
+    top: 31%;
+    left: 37.5%;
+    background-image: url("pokeball.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    width:50%;
+    height: 50%;
+}
+
+#txtAcc{
+    position: absolute;
+    top: 75%;
+    left: 34%;
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    font-family: Arial;
+}
+
+
+#bottom {
+    position: absolute;
+    bottom:0;
+    width : 99%;
+    background-color: #69768D;
+    padding: 5px;
+    height: 10%;
+    margin: 0px 0px 0px 0px;
+    
+}
+
+#left {
+    position: absolute;
+    top : 10%;
+    float: left;
+    //background-color: #FE4545;
+    padding-top: 40px;
+    width: 15%;
+    height: 80%;
+    color: white;
+    text-align: center;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: absolute;
+    top: 16%;
+    left:2%;
+    background-color: white;
+    width:90%;
+    height: 85%;
+    opacity : 0.6;
+    padding: 25px;
+}
+
+.left_content {
+    position: absolute;
+    top:16%;
+    left:15%;
+    height : 92%;
+    width: 84%;
+    background-color: #FEFEFE;
+    padding-top: 5px;
+    padding-left: 15px;
+    text-align: center;
+    
+    
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: red;
+  font-weight : bold;
+  
+}
+
+#connexion{
+    position: absolute;
+    top: 30%;
+    left: 90.5%;
+}
+
+#insTitle{
+    display: inline;
+}
+
+.label
+{
+    display: block;
+    width: 150px;
+    float: left;
+}
+
+.type{
+  padding: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#acier a:link:hover, #acier a:visited:hover  {
+  color: white;
+  background-color: grey;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+
+
+#combat a:link:hover, #combat a:visited:hover  {
+  color: white;
+  background-color: brown;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+
+
+#dragon a:link:hover, #dragon a:visited:hover  {
+  color: white;
+  background-color: #6600ff;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#eau a:link:hover, #eau a:visited:hover  {
+  color: white;
+  background-color: #00ccff;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#elec a:link:hover, #elec a:visited:hover  {
+  color: black;
+  background-color: #ffff00;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#fee a:link:hover, #fee a:visited:hover  {
+  color: white;
+  background-color: #ff66ff;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#feu a:link:hover, #feu a:visited:hover  {
+  color: white;
+  background-color: #ff3333;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#glace a:link:hover, #glace a:visited:hover  {
+  color: white;
+  background-color: #00ffff;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#insecte a:link:hover, #insecte a:visited:hover  {
+  color: white;
+  background-color: #99cc00;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#normal a:link:hover, #normal a:visited:hover  {
+  color: white;
+  background-color: #A6A265;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#plante a:link:hover, #plante a:visited:hover  {
+  color: white;
+  background-color: #00cc00;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#poison a:link:hover, #poison a:visited:hover  {
+  color: white;
+  background-color: #A200A8;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#psy a:link:hover, #psy a:visited:hover  {
+  color: white;
+  background-color: #ff00ff;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#roche a:link:hover, #roche a:visited:hover  {
+  color: white;
+  background-color: #ffcc66;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#sol a:link:hover, #sol a:visited:hover  {
+  color: white;
+  background-color: #ffcc99;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#spectre a:link:hover, #spectre a:visited:hover  {
+  color: white;
+  background-color: #cc66ff;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#tenebre a:link:hover, #tenebre a:visited:hover  {
+  color: white;
+  background-color: #660000;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+#vol a:link:hover, #vol a:visited:hover  {
+  color: white;
+  background-color: #9999ff;
+  padding: 10px;
+  padding-left: 120px;
+  padding-right: 70px;
+  font-weight : bold;
+}
+
+
+
+
