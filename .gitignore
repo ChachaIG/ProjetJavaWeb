@@ -10,3 +10,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/Projet Java Web Crenier_Veys-ejb/nbproject/private/
+/nbproject/private/
+/Projet Java Web Crenier_Veys-war/nbproject/private/
