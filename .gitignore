@@ -13,3 +13,8 @@ hs_err_pid*
 /Projet Java Web Crenier_Veys-ejb/nbproject/private/
 /nbproject/private/
 /Projet Java Web Crenier_Veys-war/nbproject/private/
+/build/
+/Projet Java Web Crenier_Veys-ejb/build/
+/Projet Java Web Crenier_Veys-ejb/dist/
+/Projet Java Web Crenier_Veys-war/build/
+/Projet Java Web Crenier_Veys-war/dist/
