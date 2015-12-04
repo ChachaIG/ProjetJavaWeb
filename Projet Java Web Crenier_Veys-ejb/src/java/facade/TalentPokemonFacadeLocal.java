@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.TalentPokemon;
+import entity.TalentPokemon;
 import java.util.List;
 import javax.ejb.Local;
 

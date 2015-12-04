@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Localite;
+import entity.Localite;
 import java.util.List;
 import javax.ejb.Local;
 

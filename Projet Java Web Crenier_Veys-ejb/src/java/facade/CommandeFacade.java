@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Commande;
+import entity.Commande;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.TalentLangue;
+import entity.TalentLangue;
 import java.util.List;
 import javax.ejb.Local;
 

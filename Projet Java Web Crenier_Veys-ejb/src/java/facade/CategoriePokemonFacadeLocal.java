@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.CategoriePokemon;
+import entity.CategoriePokemon;
 import java.util.List;
 import javax.ejb.Local;
 

@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Commande;
+import entity.Commande;
 import java.util.List;
 import javax.ejb.Local;
 

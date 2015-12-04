@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Client;
+import entity.Client;
 import java.util.List;
 import javax.ejb.Local;
 

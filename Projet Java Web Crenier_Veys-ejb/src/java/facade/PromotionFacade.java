@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Promotion;
+import entity.Promotion;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

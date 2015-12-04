@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Promotion;
+import entity.Promotion;
 import java.util.List;
 import javax.ejb.Local;
 

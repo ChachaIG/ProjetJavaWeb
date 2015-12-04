@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Localite;
+import entity.Localite;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

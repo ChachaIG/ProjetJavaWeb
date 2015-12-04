@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Pokemon;
+import entity.Pokemon;
 import java.util.List;
 import javax.ejb.Local;
 

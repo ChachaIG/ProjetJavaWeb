@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.CategoriePokemon;
+import entity.CategoriePokemon;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.Client;
+import entity.Client;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

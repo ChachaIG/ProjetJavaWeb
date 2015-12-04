@@ -5,7 +5,7 @@
  */
 package facade;
 
-import data.CategorieLangue;
+import entity.CategorieLangue;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
