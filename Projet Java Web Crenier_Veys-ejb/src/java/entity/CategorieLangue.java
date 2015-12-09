@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Entity
 @Table(name = "CATEGORIE_LANGUE")
@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "CategorieLangue.findAll", query = "SELECT c FROM CategorieLangue c"),
     @NamedQuery(name = "CategorieLangue.findByIdcategorie", query = "SELECT c FROM CategorieLangue c WHERE c.categorieLanguePK.idcategorie = :idcategorie"),
     @NamedQuery(name = "CategorieLangue.findByIdlangue", query = "SELECT c FROM CategorieLangue c WHERE c.categorieLanguePK.idlangue = :idlangue"),
+    @NamedQuery(name = "CategorieLangue.findOneByIdlangue", query = "SELECT c FROM CategorieLangue c WHERE c.categorieLanguePK.idcategorie = :idcategorie AND c.categorieLanguePK.idlangue = :idlangue"),
     @NamedQuery(name = "CategorieLangue.findByLibellecategorie", query = "SELECT c FROM CategorieLangue c WHERE c.libellecategorie = :libellecategorie")})
 public class CategorieLangue implements Serializable {
     private static final long serialVersionUID = 1L;

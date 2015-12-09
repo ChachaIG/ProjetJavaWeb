@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Stateless
 public class PokemonFacade extends AbstractFacade<Pokemon> implements PokemonFacadeLocal {

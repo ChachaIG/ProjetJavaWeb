@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Embeddable
 public class LocalitePK implements Serializable {

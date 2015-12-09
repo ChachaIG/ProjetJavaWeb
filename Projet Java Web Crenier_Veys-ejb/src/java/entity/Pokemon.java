@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Entity
 @Table(name = "POKEMON")
@@ -117,11 +117,6 @@ public class Pokemon implements Serializable {
     @JoinColumn(name = "IDCATEGORIE", referencedColumnName = "IDCATEGORIE")
     @ManyToOne(optional = false)
     private CategoriePokemon idcategorie;
-    @OneToMany(mappedBy = "evolution")
-    private Collection<Pokemon> pokemonCollection;
-    @JoinColumn(name = "EVOLUTION", referencedColumnName = "IDPOKEMON")
-    @ManyToOne
-    private Pokemon evolution;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pokemon")
     private Collection<PokemonLangue> pokemonLangueCollection;
 
@@ -276,23 +271,6 @@ public class Pokemon implements Serializable {
 
     public void setIdcategorie(CategoriePokemon idcategorie) {
         this.idcategorie = idcategorie;
-    }
-
-    @XmlTransient
-    public Collection<Pokemon> getPokemonCollection() {
-        return pokemonCollection;
-    }
-
-    public void setPokemonCollection(Collection<Pokemon> pokemonCollection) {
-        this.pokemonCollection = pokemonCollection;
-    }
-
-    public Pokemon getEvolution() {
-        return evolution;
-    }
-
-    public void setEvolution(Pokemon evolution) {
-        this.evolution = evolution;
     }
 
     @XmlTransient

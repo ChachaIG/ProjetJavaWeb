@@ -1,0 +1,48 @@
+
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./PokeTemplate.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="section">
+        <!--select>
+            <c:forEach items="{typeController.listTypeByLangue}" var="type">
+                <option>
+                    <h:outputText class="title" value="{type.libelleType}"/>
+                </option>
+            </c:forEach>
+        </select-->
+        <h:form>
+            <div class="pokedex">
+                <ul>
+                    <c:forEach items="#{pokemonController.listPokemonByLangue}" var="pokemon">
+                        <li>
+                            <h:commandLink action="#{pokemonController.details(pokemon)}">
+                                <div class="pokemon-image">
+                                    <h:graphicImage url="#{pokemon.pokemon.cheminImg}" />
+                                </div>
+                                <div class="pokemon-info">
+                                    <span class="id">
+                                        <span class="numero">
+                                            <span>No.</span>
+                                            <h:outputText value="#{pokemon.pokemon.fullIdPokemon}"/>
+                                        </span>
+                                    </span>
+                                    <h:outputText class="nom" value="#{pokemon.libellePokemon}"/>
+                                    <div class="types">
+                                        <c:forEach items="#{pokemon.pokemon.types}" var="type">
+                                            <h:outputText class="type #{type.getClassType()}" value="#{typeController.getOneTypeByLangue(type).libelleType}"/>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

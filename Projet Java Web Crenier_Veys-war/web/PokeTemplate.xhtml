@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,7 +15,7 @@
         <header>
             <div class="barreTitre">
                 <div class="logo">
-                    <h:graphicImage url="resources/images/logo.png"/>
+                    <h:graphicImage url="resources/img/logo.png"/>
                 </div>
                 <ui:insert name="top"></ui:insert>
             </div>
@@ -22,63 +23,85 @@
             <nav>
                 <div class="nav">
                     <ul>
+                    <!--c:forEach items="{typeController.getList()}" var="type">
+                            <li class="accueil">
+                                <h:link outcome="index.xhtml">
+                                    <span class="fill"></span>
+                                    <span class="icon icon_home"></span>
+                                    <h:outputText class="title" value="{type.getLibelleType()}"/>
+                                </h:link>
+                            </li>
+                        </c:forEach-->
                         <li class="accueil">
-                            <a href="#">
+                            <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_home"></span>
                                 <span class="title">Page d'accueil</span>
-                            </a>
+                            </h:link>
                         </li>
                         <li class="menu1">
-                            <a href="#" class="active">
+                            <h:link outcome="listPokemon.xhtml" class="active">
                                 <span class="fill"></span>
                                 <span class="icon icon_pokeball"></span>
                                 <span class="title">Pokédex</span>
-                            </a>
+                            </h:link>
+                            <!--ul class="hidden">
+                                <li>
+                                    <h:link outcome="index.xhtml">
+                                        <span class="title">Pokédex</span>
+                                    </h:link>
+                                </li>
+                                <li>
+                                    <h:link outcome="index.xhtml">
+                                        <span class="title">Pokédex</span>
+                                    </h:link>
+                                </li>
+                            </ul-->
                         </li>
                         <li class="menu2">
-                            <a href="#">
+                            <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_pokemontv"></span>
                                 <span class="title">TV Pokémon</span>
-                            </a>
+                            </h:link>
                         </li>
                         <li class="menu3">
-                            <a href="#">
+                            <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_pokemontv"></span>
                                 <span class="title">Mini-jeux</span>
-                            </a>
+                            </h:link>
                         </li>
                         <li class="menu4">
-                            <a href="#">
+                            <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_cards"></span>
                                 <span class="title">Jeu de Cartes à Collectionner</span>
-                            </a>
+                            </h:link>
                         </li>
                         <li class="menu5">
-                            <a href="/fr/jeux-video-pokemon/">
+                            <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_videogame"></span>
                                 <span class="title">Jeux vidéo</span>
-                            </a>
+                            </h:link>
                         </li>
                         <li class="menu6">
-                            <a href="http://www.pokemon.com/fr/play-pokemon/">
+                            <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_event"></span>
                                 <span class="title">Événements</span>
-                            </a>
+                            </h:link>
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
 
-        <div class="container">     
+        <div class="container">
+            <ui:insert name="content"></ui:insert>
             <section>
-                <ui:insert name="content"></ui:insert>
+                <ui:insert name="section"></ui:insert>
             </section>
         </div>
 

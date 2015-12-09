@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Stateless
 public class LangueFacade extends AbstractFacade<Langue> implements LangueFacadeLocal {

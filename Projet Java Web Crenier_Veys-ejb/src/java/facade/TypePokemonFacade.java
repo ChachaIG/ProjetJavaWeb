@@ -9,10 +9,12 @@ import entity.TypePokemon;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import model.ModelPromo;
+import model.ModelType;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Stateless
 public class TypePokemonFacade extends AbstractFacade<TypePokemon> implements TypePokemonFacadeLocal {
@@ -27,5 +29,4 @@ public class TypePokemonFacade extends AbstractFacade<TypePokemon> implements Ty
     public TypePokemonFacade() {
         super(TypePokemon.class);
     }
-    
 }

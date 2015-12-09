@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Entity
 @Table(name = "POKEMON_LANGUE")

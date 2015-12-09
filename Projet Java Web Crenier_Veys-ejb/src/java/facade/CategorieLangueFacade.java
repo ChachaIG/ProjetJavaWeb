@@ -6,13 +6,19 @@
 package facade;
 
 import entity.CategorieLangue;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import model.ModelCategorie;
+import model.ModelCategorieLangue;
+import model.ModelLangue;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Stateless
 public class CategorieLangueFacade extends AbstractFacade<CategorieLangue> implements CategorieLangueFacadeLocal {
@@ -27,5 +33,33 @@ public class CategorieLangueFacade extends AbstractFacade<CategorieLangue> imple
     public CategorieLangueFacade() {
         super(CategorieLangue.class);
     }
-    
+
+    @Override
+    public ArrayList<ModelCategorieLangue> getListCategorieByLangue(Integer idLangue) {
+        Query query;
+        query = em.createNamedQuery("CategorieLangue.findByIdlangue");
+        query.setParameter("idlangue", idLangue);
+
+        List<CategorieLangue> result = query.getResultList();
+
+        return createArrayListModelCategorieLangue(result);
+    }
+
+    private ArrayList<ModelCategorieLangue> createArrayListModelCategorieLangue(List<CategorieLangue> list) {
+
+        ArrayList<ModelCategorieLangue> listCategorie = new ArrayList<>();
+
+        for (CategorieLangue l : list) {
+            ModelCategorieLangue newCategorieLangue = convertToModelCategorieLangue(l);
+            listCategorie.add(newCategorieLangue);
+        }
+
+        return listCategorie;
+    }
+
+    private ModelCategorieLangue convertToModelCategorieLangue(CategorieLangue categorie) {
+        ModelLangue newLangue = new ModelLangue(categorie.getLangue().getIdlangue(), categorie.getLangue().getCodelangue(), categorie.getLangue().getLibellelangue());
+        ModelCategorie newCategorie = new ModelCategorie(categorie.getCategoriePokemon().getIdcategorie());
+        return new ModelCategorieLangue(newCategorie, newLangue, categorie.getLibellecategorie());
+    }
 }

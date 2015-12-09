@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Entity
 @Table(name = "TYPE_LANGUE")
@@ -30,6 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TypeLangue.findAll", query = "SELECT t FROM TypeLangue t"),
     @NamedQuery(name = "TypeLangue.findByIdlangue", query = "SELECT t FROM TypeLangue t WHERE t.typeLanguePK.idlangue = :idlangue"),
     @NamedQuery(name = "TypeLangue.findByIdtype", query = "SELECT t FROM TypeLangue t WHERE t.typeLanguePK.idtype = :idtype"),
+    @NamedQuery(name = "TypeLangue.findByIdlangueForOnePokemon", query = "SELECT t FROM TypeLangue t, Pokemon p WHERE p.idpokemon = :idpokemon AND t.typeLanguePK.idlangue = :idlangue"),
+    @NamedQuery(name = "TypeLangue.findOneByIdlangue", query = "SELECT t FROM TypeLangue t WHERE t.typeLanguePK.idtype = :idtype AND t.typeLanguePK.idlangue = :idlangue"),
     @NamedQuery(name = "TypeLangue.findByLibelletype", query = "SELECT t FROM TypeLangue t WHERE t.libelletype = :libelletype")})
 public class TypeLangue implements Serializable {
     private static final long serialVersionUID = 1L;

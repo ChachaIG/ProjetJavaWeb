@@ -6,12 +6,14 @@
 package facade;
 
 import entity.PokemonLangue;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
+import model.ModelPokemonLangue;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Local
 public interface PokemonLangueFacadeLocal {
@@ -29,5 +31,7 @@ public interface PokemonLangueFacadeLocal {
     List<PokemonLangue> findRange(int[] range);
 
     int count();
+
+    ArrayList<ModelPokemonLangue> getListPokemonByLangue(Integer idLangue);
     
 }

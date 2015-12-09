@@ -6,12 +6,14 @@
 package facade;
 
 import entity.TypeLangue;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
+import model.ModelTypeLangue;
 
 /**
  *
- * @author charlotte
+ * @author quentinveys
  */
 @Local
 public interface TypeLangueFacadeLocal {
@@ -29,5 +31,7 @@ public interface TypeLangueFacadeLocal {
     List<TypeLangue> findRange(int[] range);
 
     int count();
+
+    ArrayList<ModelTypeLangue> getListTypeByLangue(Integer idLangue);
     
 }

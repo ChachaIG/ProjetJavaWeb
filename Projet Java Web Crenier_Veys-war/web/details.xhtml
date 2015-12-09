@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./PokeTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="content">
+        <h:form>
+            <div class="pokemon-pagination">
+                <h:commandLink action="#{pokemonController.details(pokemonController.previous)}" class="previous">
+                    <div>
+                        <h:outputText class="fleche" value="&lt;"/>
+                        <span class="id">
+                            <span class="numero">
+                                <span>No.</span>
+                                <h:outputText value="#{pokemonController.previous.pokemon.fullIdPokemon}"/>
+                            </span>
+                        </span>
+                        <h:outputText class="nom" value="#{pokemonController.previous.libellePokemon}"/>
+                    </div>
+                </h:commandLink>
+                <h:commandLink action="#{pokemonController.details(pokemonController.next)}" class="next">
+                    <div>
+                        <h:outputText class="fleche" value="&gt;"/>
+                        <span class="id">
+                            <span class="numero">
+                                <span>No.</span>
+                                <h:outputText value="#{pokemonController.next.pokemon.fullIdPokemon}"/>
+                            </span>
+                        </span>
+                        <h:outputText class="nom" value="#{pokemonController.next.libellePokemon}"/>
+                    </div>
+                </h:commandLink>
+            </div>
+            <div class="pokemon-pagination-title">
+                <div>
+                    <h:outputText class="nom" value="#{pokemonController.currentPokemon.libellePokemon}"/>
+                    <span class="id">
+                        <span class="numero">
+                            <span>No.</span>
+                            <h:outputText value="#{pokemonController.currentPokemon.pokemon.fullIdPokemon}"/>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="section">
+        <div class="pokemon-details">
+            <div class="pokemon-details-left">
+                <div class="pokemon-details-image">
+                    <h:graphicImage url="#{pokemonController.currentPokemon.pokemon.cheminImgDetails}" />
+                </div>
+                <div class="pokemon-details-info">
+                    <div class="types">
+                        <h3>
+                            <h:outputText value="Type"/>
+                        </h3>
+                        <c:forEach items="#{pokemonController.currentPokemon.pokemon.types}" var="type">
+                            <h:outputText class="type #{type.getClassType()}" value="#{typeController.getOneTypeByLangue(type.idType).libelleType}"/>
+                        </c:forEach>
+                    </div>
+
+                    <div class="faiblesses">
+                        <h3>
+                            <h:outputText value="Faiblesse(s)"/>
+                        </h3>
+                        <c:forEach items="#{pokemonController.currentPokemon.pokemon.faiblesses}" var="faiblesse">
+                            <h:outputText class="type #{faiblesse.getClassType()}" value="#{typeController.getOneTypeByLangue(faiblesse.idType).libelleType}"/>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+            <div class="pokemon-details-right">
+                <div class="pokemon-description">
+                    <h:outputText value="#{pokemonController.currentPokemon.descriptionPokemon}"/>
+                </div>
+                <div class="pokemon-description-info">
+                    <div class="pokemon-description-info-left">
+                        <h:outputText class="titre" value="" />
+                        <h:outputText class="valeur" value="#{pokemonController.currentPokemon.pokemon.taille}" />
+                        <h:outputText class="titre" value="" />
+                        <h:outputText class="valeur" value="#{pokemonController.currentPokemon.pokemon.poids}" />
+                    </div>
+                    <div class="pokemon-description-info-right">
+                        <h:outputText class="titre" value="" />
+                        <h:outputText class="valeur" value="#{pokemonController.currentPokemon.pokemon.categorie.idCategorie}" />
+                        <h:outputText class="titre" value="" />
+                        <h:outputText class="valeur" value="#{pokemonController.currentPokemon.pokemon.poids}" />
+                        <h:outputText class="valeur" value="#{pokemonController.currentPokemon.pokemon.poids}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>
