@@ -18,8 +18,9 @@ public class ModelPokemon {
     private ModelCategorie categorie;
     private ArrayList<ModelType> types;
     private ArrayList<ModelType> faiblesses;
+    private ArrayList<ModelTalent> talents;
 
-    public ModelPokemon(Integer idPokemon, String cheminImg, double taille, double poids, int pointsVie, int pointsAttaque, int pointsDefense, int pointsAttaqueSpeciale, int pointsDefenseSpeciale, int pointsVitesse, double prix, ModelCategorie categorie, ArrayList<ModelType> types, ArrayList<ModelType> faiblesses) {
+    public ModelPokemon(Integer idPokemon, String cheminImg, double taille, double poids, int pointsVie, int pointsAttaque, int pointsDefense, int pointsAttaqueSpeciale, int pointsDefenseSpeciale, int pointsVitesse, double prix, ModelCategorie categorie, ArrayList<ModelType> types, ArrayList<ModelType> faiblesses, ArrayList<ModelTalent> talents) {
         this.idPokemon = idPokemon;
         this.cheminImg = cheminImg;
         this.taille = taille;
@@ -34,6 +35,7 @@ public class ModelPokemon {
         this.categorie = categorie;
         this.types = types;
         this.faiblesses = faiblesses;
+        this.talents = talents;
     }
 
     public Integer getIdPokemon() {
@@ -146,6 +148,14 @@ public class ModelPokemon {
 
     public void setFaiblesses(ArrayList<ModelType> faiblesses) {
         this.faiblesses = faiblesses;
+    }
+
+    public ArrayList<ModelTalent> getTalents() {
+        return talents;
+    }
+
+    public void setTalents(ArrayList<ModelTalent> talents) {
+        this.talents = talents;
     }
     
     public String getFullIdPokemon() {

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
 import model.ModelPokemonLangue;
 
 @ManagedBean(name = "pokemonController")
@@ -14,7 +15,7 @@ public class PokemonController implements Serializable {
 
     @EJB
     private PokemonManagerLocal pokemonSessionBean;
-
+    
     private ArrayList<ModelPokemonLangue> listPokemon = null;
     private ModelPokemonLangue currentPokemon = null;
 
@@ -68,5 +69,9 @@ public class PokemonController implements Serializable {
         int i = listPokemon.indexOf(currentPokemon) - 1;
         if (i < 0) i = listPokemon.size() - 1;
         return listPokemon.get(i);
+    }
+    
+    public int getStatsPourc(int points) {
+        return (100 - (points * 10));
     }
 }

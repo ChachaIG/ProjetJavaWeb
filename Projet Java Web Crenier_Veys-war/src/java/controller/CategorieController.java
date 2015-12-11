@@ -9,9 +9,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.ModelCategorie;
 import model.ModelCategorieLangue;
-import model.ModelTypeLangue;
 
-@ManagedBean(name = "pokemonController")
+@ManagedBean(name = "categorieController")
 @SessionScoped
 public class CategorieController implements Serializable {
 

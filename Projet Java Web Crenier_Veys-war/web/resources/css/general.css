@@ -1,0 +1,228 @@
+/*///////////////////
+///////GENERAL///////
+///////////////////*/
+
+html{
+    width: 100%;
+}
+
+body {
+    background: #424242 url("../img/body_bg.png");
+    font-size: 16px;
+    font-family: arial, sans-serif;
+    color: #000000;
+    width: 100%;
+    margin: 0;
+}
+
+.barreTitre, nav, section, footer {
+    padding: 12px;
+}
+
+.container {
+    min-height: 560px;
+}
+
+ul {
+    list-style: outside none none;
+    height: auto;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: arial, sans-serif;
+    color: #919191;
+    font-size: 200%;
+    line-height: 125%;
+    text-transform: none;
+    margin:0;
+}
+
+h3 {
+    font-family: arial, sans-serif;
+    color: #313131;
+    text-transform: none;
+    width: 100%;
+    margin:0;
+}
+
+/*//////////////////
+///////HEADER///////
+//////////////////*/
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+    width:100%;
+}
+
+.barreTitre {
+    width: 100%;
+    height: 60px;
+    border-bottom: solid 2px #dedede;
+    background-color: #f5f5f5;
+}
+
+header .barreTitre .logo img{
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+/*///////////////////
+///////CONTENU///////
+///////////////////*/
+
+.container {
+    background: #ffffff url("../img/container_bg.png");
+    margin: auto;
+    max-width: 1280px;
+}
+
+section {
+    background-color: #ffffff;
+    margin: 0 auto;
+    max-width: 1024px;
+    text-align: justify;
+    padding: 180px 32px 80px;
+    min-height: 620px;
+    width: 100%;
+}
+
+/*/////////////////////////////////
+///////COULEUR 18 TYPES POKE///////
+/////////////////////////////////*/
+
+/*ACIER*/
+.background-type1 {
+    background: #9EB7B8 linear-gradient(180deg, #9EB7B8 50%, #9EB7B8 50%) repeat scroll 0% 0%;
+    color: #212121;
+}
+
+/*COMBAT*/
+.background-type2 {
+    background: #D56723 linear-gradient(180deg, #D56723 50%, #D56723 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*DRAGON*/
+.background-type3 {
+    background: #53A4CF linear-gradient(180deg, #53A4CF 50%, #F16E57 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*EAU*/
+.background-type4 {
+    background: #4592C4 linear-gradient(180deg, #4592C4 50%, #4592C4 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*ELECTRIQUE*/
+.background-type5 {
+    background: #EED535 linear-gradient(180deg, #EED535 50%, #EED535 50%) repeat scroll 0% 0%;
+    color: #212121;
+}
+
+/*FEE*/
+.background-type6 {
+    background: #FDB9E9 linear-gradient(180deg, #FDB9E9 50%, #FDB9E9 50%) repeat scroll 0% 0%;
+    color: #212121;
+}
+
+/*FEU*/
+.background-type7 {
+    background: #FD7D24 linear-gradient(180deg, #FD7D24 50%, #FD7D24 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*GLACE*/
+.background-type8 {
+    background: #51C4E7 linear-gradient(180deg, #51C4E7 50%, #51C4E7 50%) repeat scroll 0% 0%;
+    color: #212121;
+}
+
+/*INSECTE*/
+.background-type9 {
+    background: #729F3F linear-gradient(180deg, #729F3F 50%, #729F3F 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*NORMAL*/
+.background-type10 {
+    background: #A4ACAF linear-gradient(180deg, #A4ACAF 50%, #A4ACAF 50%) repeat scroll 0% 0%;
+    color: #212121;
+}
+
+/*PLANTE*/
+.background-type11 {
+    background: #9BCC50 linear-gradient(180deg, #9BCC50 50%, #9BCC50 50%) repeat scroll 0% 0%;
+    color: #212121;
+}
+
+/*POISON*/
+.background-type12 {
+    background: #B97FC9 linear-gradient(180deg, #B97FC9 50%, #B97FC9 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*PSY*/
+.background-type13 {
+    background: #F366B9 linear-gradient(180deg, #F366B9 50%, #F366B9 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*ROCHE*/
+.background-type14 {
+    background: #A38C21 linear-gradient(180deg, #A38C21 50%, #A38C21 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*SOL*/
+.background-type15 {
+    background: #F7DE3F linear-gradient(180deg, #F7DE3F 50%, #AB9842 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*SPECTRE*/
+.background-type16 {
+    background: #7B62A3 linear-gradient(180deg, #7B62A3 50%, #7B62A3 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*TENEBRE*/
+.background-type17 {
+    background: #707070 linear-gradient(180deg, #707070 50%, #707070 50%) repeat scroll 0% 0%;
+    color: #FFF;
+}
+
+/*VOL*/
+.background-type18 {
+    background: #3DC7EF linear-gradient(180deg, #3DC7EF 50%, #BDB9B8 50%) repeat scroll 0% 0%;
+    color: #212121;
+}
+
+
+/*//////////////////
+///////FOOTER///////
+//////////////////*/
+
+footer {
+    background-color: #171717;
+    height: 100px;
+    color: #616161;
+    font-size: 88%;
+    font-weight: bold;
+    font-family: "Roboto", arial, sans-serif;
+    letter-spacing: 1px;
+    line-height: 100%;
+    text-transform: none;
+    vertical-align: middle;
+}

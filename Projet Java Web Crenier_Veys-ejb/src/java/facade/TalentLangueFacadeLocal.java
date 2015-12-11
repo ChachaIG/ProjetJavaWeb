@@ -6,8 +6,10 @@
 package facade;
 
 import entity.TalentLangue;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
+import model.ModelTalentLangue;
 
 /**
  *
@@ -29,5 +31,7 @@ public interface TalentLangueFacadeLocal {
     List<TalentLangue> findRange(int[] range);
 
     int count();
+
+    ArrayList<ModelTalentLangue> getListTalentByLangue(Integer idLangue);
     
 }

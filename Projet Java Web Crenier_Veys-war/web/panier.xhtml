@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-thansitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./pokeTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="head">
+        <h:outputStylesheet name="./css/panier.css"/>
+    </ui:define>
+
+    <ui:define name="section">
+        <h1><h:outputText value="Mon Panier"/></h1>
+        <div class="tableau">
+            <table class="panier">
+                <thead>
+                    <tr>
+                        <th class="numero">N°</th>
+                        <th class="image">Image</th>
+                        <th class="article">Article</th>
+                        <th class="quantite">Quantité</th>
+                        <th class="prix">Prix Unitaire</th>
+                        <th class="prixTot">Prix Total Article</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>ar</td>
+                        <td>aior</td>
+                        <td>aior</td>
+                        <td>aor</td>
+                    </tr>
+                </tbody>
+               
+            </table>
+        </div>
+    </ui:define>
+
+</ui:composition>

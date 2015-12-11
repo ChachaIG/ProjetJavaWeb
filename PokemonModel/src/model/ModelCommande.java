@@ -9,19 +9,10 @@ public class ModelCommande {
     private Date dateLivraison;
     private ModelClient client;
 
-    public ModelCommande(Integer numCommande, Date dateCommande, Date dateLivraison, ModelClient client) {
-        this.numCommande = numCommande;
+    public ModelCommande(Date dateCommande, Date dateLivraison, ModelClient client) {
         this.dateCommande = dateCommande;
         this.dateLivraison = dateLivraison;
         this.client = client;
-    }
-
-    public Integer getNumCommande() {
-        return numCommande;
-    }
-
-    public void setNumCommande(Integer numCommande) {
-        this.numCommande = numCommande;
     }
 
     public Date getDateCommande() {

@@ -1,14 +1,15 @@
-
 package businessSessionBean;
 
 import facade.CategorieLangueFacadeLocal;
 import facade.PokemonLangueFacadeLocal;
+import facade.TalentLangueFacadeLocal;
 import facade.TypeLangueFacadeLocal;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import model.ModelCategorieLangue;
 import model.ModelPokemonLangue;
+import model.ModelTalentLangue;
 import model.ModelTypeLangue;
 
 @Stateless
@@ -20,6 +21,8 @@ public class PokemonManager implements PokemonManagerLocal {
     private PokemonLangueFacadeLocal pokemonLangue;
     @EJB
     private CategorieLangueFacadeLocal categorieLangue;
+    @EJB
+    private TalentLangueFacadeLocal talentLangue;
 
     @Override
     public ArrayList<ModelTypeLangue> getListTypeByLangue(Integer idLangue) {
@@ -36,5 +39,9 @@ public class PokemonManager implements PokemonManagerLocal {
         return categorieLangue.getListCategorieByLangue(idLangue);
     }
 
-    
+    @Override
+    public ArrayList<ModelTalentLangue> getListTalentByLangue(Integer idLangue) {
+        return talentLangue.getListTalentByLangue(idLangue);
+    }
+
 }
