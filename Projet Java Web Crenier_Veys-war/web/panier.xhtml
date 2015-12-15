@@ -12,7 +12,7 @@
     </ui:define>
 
     <ui:define name="section">
-        <h1><h:outputText value="Mon Panier"/></h1>
+        <h1><h:outputText value="#{lang.monPanier}"/></h1>
 
         <c:choose>
             <c:when test="#{!panierController.isEmptyListPanier()}">
@@ -26,31 +26,31 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header" class="image">
-                            <h:outputText value="Image"/>
+                            <h:outputText value="#{lang.image}"/>
                         </f:facet>
                         <h:graphicImage value="#{line.pokemon.cheminImg}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header" class="article">
-                            <h:outputText value="Article"/>
+                            <h:outputText value="#{lang.article}"/>
                         </f:facet>
                         <h:outputText value="#{pokemonController.getOnePokemonByLangue(line.pokemon.idPokemon).libellePokemon}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header" class="quantite">
-                            <h:outputText value="Quantité"/>
+                            <h:outputText value="#{lang.quantite}"/>
                         </f:facet>
                         <h:outputText value="#{line.quantite}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header" class="prix">
-                            <h:outputText value="Prix Unitaire"/>
+                            <h:outputText value="#{lang.prixUnitaire}"/>
                         </f:facet>
                         <h:outputText value="#{line.prixUnitaire}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header" class="quantite">
-                            <h:outputText value="Prix Total Article"/>
+                            <h:outputText value="#{lang.prixTotalArticle}"/>
                         </f:facet>
                     </h:column>
                 </h:dataTable>

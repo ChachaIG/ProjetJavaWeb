@@ -61,7 +61,7 @@
                                 <span class="fill"></span>
                                 <span class="icon icon_pokemontv"></span>
                                 <span class="title">
-                                    <h:outputText value="Promotions" />
+                                    <h:outputText value="#{lang.promo}" />
                                 </span>
                             </h:link>
                         </li>
@@ -70,7 +70,7 @@
                                 <span class="fill"></span>
                                 <span class="icon icon_cards"></span>
                                 <span class="title">
-                                    <h:outputText value="Panier" />
+                                    <h:outputText value="#{lang.panier}" />
                                 </span>
                             </h:link>
                         </li>
@@ -79,7 +79,7 @@
                                 <span class="fill"></span>
                                 <span class="icon icon_videogame"></span>
                                 <span class="title">
-                                    <h:outputText value="Inscription" />
+                                    <h:outputText value="#{lang.inscription}" />
                                 </span>
                             </h:link>
                         </li>
@@ -88,14 +88,14 @@
                                 <span class="fill"></span>
                                 <span class="icon icon_event"></span>
                                 <span class="title">
-                                    <h:outputText value="Contact" />
+                                    <h:outputText value="#{lang.contact}" />
                                 </span>
                             </h:link>
                         </li>
                     </ul>
                 </div>
                 <div id="panier-logo">
-                    <a class="cd-img-replace" href="#0">Cart</a>
+                    <a class="cd-img-replace" href="#0"><h:outputText value="#{lang.panier}" /></a>
                 </div>
             </nav>
         </header>
@@ -111,7 +111,7 @@
 
         <div id="cd-cart"> 
 
-            <h1><h:outputText value="Mon Panier"/></h1>
+            <h1><h:outputText value="#{lang.monPanier}"/></h1>
 
             <h:dataTable id="panierDroite" class="cd-cart-items" var="item" value="#{panierController.panier}">
                 <h:column>
@@ -130,13 +130,13 @@
             
             <div class="cd-cart-total">
                 <p>
-                    <h:outputText value="Total" />
+                    <h:outputText value="#{lang.total}" />
                     <span>39.96€ </span>
                 </p>
             </div>
             
-            <a href="#0" class="checkout-btn">Checkout</a>
-            <p class="cd-go-to-cart"><h:link outcome="panier.xhtml" value="Go to cart page"/></p>
+            <a href="#0" class="checkout-btn"><h:outputText value="#{lang.verifier}" /></a>
+            <p class="cd-go-to-cart"><h:link outcome="panier.xhtml" value="#{lang.allerAuPanier}"/></p>
         </div>
         <footer>
             <ui:insert name="bottom">Bottom</ui:insert>
