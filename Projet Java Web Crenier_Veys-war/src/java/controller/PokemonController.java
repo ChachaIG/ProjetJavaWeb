@@ -2,11 +2,10 @@ package controller;
 
 import businessSessionBean.PokemonManagerLocal;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.HashMap;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
 import model.ModelPokemonLangue;
 
 @ManagedBean(name = "pokemonController")
@@ -16,7 +15,7 @@ public class PokemonController implements Serializable {
     @EJB
     private PokemonManagerLocal pokemonSessionBean;
     
-    private ArrayList<ModelPokemonLangue> listPokemon = null;
+    private HashMap<Integer, ModelPokemonLangue> hashMapPokemon = new HashMap<>();
     private ModelPokemonLangue currentPokemon = null;
 
     public PokemonController() {
@@ -26,12 +25,13 @@ public class PokemonController implements Serializable {
         return pokemonSessionBean;
     }
 
-    public ArrayList<ModelPokemonLangue> getListPokemonByLangue() {
+    public HashMap<Integer, ModelPokemonLangue> getListPokemonByLangue() {
         //if (list == null) {
         //Locale locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
-        listPokemon = getPokemonSessionBean().getListPokemonByLangue(1);
+        if (hashMapPokemon.isEmpty())
+            hashMapPokemon = getPokemonSessionBean().getListPokemonByLangue(1);
         //}
-        return listPokemon;
+        return hashMapPokemon;
     }
     
     public String details(ModelPokemonLangue pokemon) {
@@ -50,28 +50,24 @@ public class PokemonController implements Serializable {
     public void setCurrentPokemon(ModelPokemonLangue currentPokemon) {
         this.currentPokemon = currentPokemon;
     }
-
-    public ArrayList<ModelPokemonLangue> getListPokemon() {
-        return listPokemon;
-    }
-
-    public void setListPokemon(ArrayList<ModelPokemonLangue> listPokemon) {
-        this.listPokemon = listPokemon;
-    }
     
     public ModelPokemonLangue getNext() {
-        int i = listPokemon.indexOf(currentPokemon) + 1;
-        if (i >= listPokemon.size()) i = 0;
-        return listPokemon.get(i);
+        int i = getCurrentPokemon().getPokemon().getIdPokemon().intValue() + 1;
+        if (i >= getListPokemonByLangue().size()) i = 1;
+        return getListPokemonByLangue().get(i);
     }
     
     public ModelPokemonLangue getPrevious() {
-        int i = listPokemon.indexOf(currentPokemon) - 1;
-        if (i < 0) i = listPokemon.size() - 1;
-        return listPokemon.get(i);
+        int i = getCurrentPokemon().getPokemon().getIdPokemon().intValue() - 1;
+        if (i <= 0) i = getListPokemonByLangue().size();
+        return getListPokemonByLangue().get(i);
     }
     
     public int getStatsPourc(int points) {
         return (100 - (points * 10));
+    }
+    
+    public ModelPokemonLangue getOnePokemonByLangue(int idPokemon) {
+        return getListPokemonByLangue().get(idPokemon);
     }
 }

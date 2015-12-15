@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./pokeTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="head">
+        <h:outputStylesheet name="./css/inscription.css"/>
+    </ui:define>
+
+    <ui:define name="section">
+        <h:form>
+            <div class="login">
+                <div class="connection">
+                    <h1><h:outputText value="Connection"/></h1>
+                    <span class="input valider">
+                        <h:inputText styleClass="input_field" required="true" requiredMessage="Please enter your email address." validatorMessage="Invalid email format" id="input9">
+                            <f:ajax event="focus" execute="@this" render="messageInput9" />
+                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                        </h:inputText>
+                        <label class="input_label" for="input9">
+                            <span class="input_label-content" data-content="Login"><h:outputText value="Login" /></span>
+                        </label>
+                    </span>
+                    <p class="messageErreur">
+                        <h:message for="input9" id="messageInput9"/>
+                    </p>
+                    <span class="input">
+                        <h:inputSecret class="input_field" id="input10" />
+                        <label class="input_label" for="input10">
+                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="Mot de passe" /></span>
+                        </label>
+                    </span>
+                    <div class="newConnection">
+                        <h:outputText class="btnConnection" value="Se connecter" />
+                    </div>
+                </div>
+                <div class="inscription">
+                    <h1><h:outputText value="Inscription"/></h1>
+                    <span class="input">
+                        <h:inputText class="input_field" id="input1" />
+                        <label class="input_label" for="input1">
+                            <span class="input_label-content" data-content="Nom"><h:outputText value="Nom" /></span>
+                        </label>
+                    </span>
+                    <span class="input">
+                        <h:inputText class="input_field" id="input2" />
+                        <label class="input_label" for="input2">
+                            <span class="input_label-content" data-content="Prénom"><h:outputText value="Prénom" /></span>
+                        </label>
+                    </span>
+                    <span class="input">
+                        <h:inputText class="input_field" id="input3" />
+                        <label class="input_label" for="input3">
+                            <span class="input_label-content" data-content="Adresse mail"><h:outputText value="Adresse mail" /></span>
+                        </label>
+                    </span>
+                    <span class="input">
+                        <h:inputSecret class="input_field" id="input4" />
+                        <label class="input_label" for="input4">
+                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="Mot de passe" /></span>
+                        </label>
+                    </span>
+                                        <span class="input">
+                        <h:inputSecret class="input_field" id="input5" />
+                        <label class="input_label" for="input5">
+                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="Mot de passe" /></span>
+                        </label>
+                    </span>
+                    <span class="input">
+                        <h:inputText class="input_field" id="input6" />
+                        <label class="input_label" for="input6">
+                            <span class="input_label-content" data-content="Numéro de téléphone"><h:outputText value="Numéro de téléphone" /></span>
+                        </label>
+                    </span>
+                    <span class="input">
+                        <h:inputText class="input_field" id="input7" />
+                        <label class="input_label" for="input7">
+                            <span class="input_label-content" data-content="Adresse"><h:outputText value="Adresse" /></span>
+                        </label>
+                    </span>
+                    <span class="input postCodeCity">
+                        <div class="postCode">
+                            <label class="label_input" for="input8">
+                                <span class="input_label-content" data-content="Code Postal"><h:outputText value="Code Postal" /></span>
+                            </label>
+                            <h:inputText class="field_input" id="input8" value="#{clientController.postCode}">
+                                <f:ajax event="blur" execute="@form" render="selectMenu"/>
+                            </h:inputText>
+                        </div>
+                        <div class="select-style city">
+                            <h:selectOneMenu id="selectMenu">
+                                <f:selectItems value="#{clientController.getLocaliteByPostCode()}" var="entry" itemValue="#{entry.ville}" itemLabel="#{entry.ville}" />
+                            </h:selectOneMenu>
+                        </div>
+                    </span>
+
+                    <div class="newInscription">
+                        <h:outputText class="btnInscription" value="S'inscrire" />
+                    </div>
+                </div>
+            </div>
+        </h:form>
+        <h:outputScript name="./script/test.js"></h:outputScript>
+        <h:outputScript>
+            $(document).ready(function() {
+            setTimeout(function(){
+            document.querySelectorAll('form')[0].getElementsByTagName('span')[0].classList += "input--filled";
+            document.querySelectorAll('form')[0].getElementsByTagName('span')[0].getElementsByTagName('input')[0].focus();
+            }, 500);
+            });
+        </h:outputScript>
+    </ui:define>
+
+</ui:composition>

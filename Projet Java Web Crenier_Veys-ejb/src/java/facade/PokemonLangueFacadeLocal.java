@@ -6,7 +6,7 @@
 package facade;
 
 import entity.PokemonLangue;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Local;
 import model.ModelPokemonLangue;
@@ -32,6 +32,6 @@ public interface PokemonLangueFacadeLocal {
 
     int count();
 
-    ArrayList<ModelPokemonLangue> getListPokemonByLangue(Integer idLangue);
+    HashMap<Integer, ModelPokemonLangue> getListPokemonByLangue(Integer idLangue);
     
 }

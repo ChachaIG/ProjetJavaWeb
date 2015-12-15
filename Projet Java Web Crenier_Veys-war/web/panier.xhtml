@@ -3,7 +3,9 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./pokeTemplate.xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <ui:define name="head">
         <h:outputStylesheet name="./css/panier.css"/>
@@ -11,31 +13,51 @@
 
     <ui:define name="section">
         <h1><h:outputText value="Mon Panier"/></h1>
-        <div class="tableau">
-            <table class="panier">
-                <thead>
-                    <tr>
-                        <th class="numero">N°</th>
-                        <th class="image">Image</th>
-                        <th class="article">Article</th>
-                        <th class="quantite">Quantité</th>
-                        <th class="prix">Prix Unitaire</th>
-                        <th class="prixTot">Prix Total Article</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>a</td>
-                        <td>a</td>
-                        <td>ar</td>
-                        <td>aior</td>
-                        <td>aior</td>
-                        <td>aor</td>
-                    </tr>
-                </tbody>
-               
-            </table>
-        </div>
+
+        <c:choose>
+            <c:when test="#{!panierController.isEmptyListPanier()}">
+            <div class="tableau">
+                <h:dataTable class="panier" var="line" value="#{panierController.panier}">
+                    <h:column>
+                        <f:facet name="header" class="numero">
+                            <h:outputText value="N°"/>
+                        </f:facet>
+                        <h:outputText value="#{line.numLigne}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="image">
+                            <h:outputText value="Image"/>
+                        </f:facet>
+                        <h:graphicImage value="#{line.pokemon.cheminImg}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="article">
+                            <h:outputText value="Article"/>
+                        </f:facet>
+                        <h:outputText value="#{pokemonController.getOnePokemonByLangue(line.pokemon.idPokemon).libellePokemon}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="quantite">
+                            <h:outputText value="Quantité"/>
+                        </f:facet>
+                        <h:outputText value="#{line.quantite}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="prix">
+                            <h:outputText value="Prix Unitaire"/>
+                        </f:facet>
+                        <h:outputText value="#{line.prixUnitaire}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="quantite">
+                            <h:outputText value="Prix Total Article"/>
+                        </f:facet>
+                    </h:column>
+                </h:dataTable>
+            </div>
+            </c:when>
+            <c:otherwise>Coucou</c:otherwise>
+        </c:choose>
     </ui:define>
 
 </ui:composition>

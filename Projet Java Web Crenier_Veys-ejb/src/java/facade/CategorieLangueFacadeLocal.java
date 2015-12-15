@@ -6,7 +6,7 @@
 package facade;
 
 import entity.CategorieLangue;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Local;
 import model.ModelCategorieLangue;
@@ -32,6 +32,6 @@ public interface CategorieLangueFacadeLocal {
 
     int count();
     
-    ArrayList<ModelCategorieLangue> getListCategorieByLangue(Integer idLangue);
+    HashMap<Integer, ModelCategorieLangue> getListCategorieByLangue(Integer idLangue);
     
 }

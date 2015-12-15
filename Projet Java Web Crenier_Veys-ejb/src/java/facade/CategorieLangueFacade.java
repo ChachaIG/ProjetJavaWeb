@@ -7,6 +7,7 @@ package facade;
 
 import entity.CategorieLangue;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -35,23 +36,23 @@ public class CategorieLangueFacade extends AbstractFacade<CategorieLangue> imple
     }
 
     @Override
-    public ArrayList<ModelCategorieLangue> getListCategorieByLangue(Integer idLangue) {
+    public HashMap<Integer, ModelCategorieLangue> getListCategorieByLangue(Integer idLangue) {
         Query query;
         query = em.createNamedQuery("CategorieLangue.findByIdlangue");
         query.setParameter("idlangue", idLangue);
 
         List<CategorieLangue> result = query.getResultList();
 
-        return createArrayListModelCategorieLangue(result);
+        return createModelCategorieLangue(result);
     }
 
-    private ArrayList<ModelCategorieLangue> createArrayListModelCategorieLangue(List<CategorieLangue> list) {
+    private HashMap<Integer, ModelCategorieLangue> createModelCategorieLangue(List<CategorieLangue> list) {
 
-        ArrayList<ModelCategorieLangue> listCategorie = new ArrayList<>();
+        HashMap<Integer, ModelCategorieLangue> listCategorie = new HashMap<>();
 
         for (CategorieLangue l : list) {
             ModelCategorieLangue newCategorieLangue = convertToModelCategorieLangue(l);
-            listCategorie.add(newCategorieLangue);
+            listCategorie.put(l.getCategoriePokemon().getIdcategorie(), newCategorieLangue);
         }
 
         return listCategorie;

@@ -6,6 +6,7 @@ import entity.TalentPokemon;
 import entity.TypePokemon;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -37,37 +38,37 @@ public class PokemonLangueFacade extends AbstractFacade<PokemonLangue> implement
     }
 
     @Override
-    public ArrayList<ModelPokemonLangue> getListPokemonByLangue(Integer idLangue) {
+    public HashMap<Integer, ModelPokemonLangue> getListPokemonByLangue(Integer idLangue) {
         Query query;
-        query = em.createNamedQuery("PokemonLangue.findByIdlangue");
+        query = getEntityManager().createNamedQuery("PokemonLangue.findByIdlangue");
         query.setParameter("idlangue", idLangue);
         
         List<PokemonLangue> result = query.getResultList();
 
-        return getListModelPokemonLangue(result);
+        return createModelPokemonLangue(result);
     }
 
-    private ArrayList<ModelPokemonLangue> getListModelPokemonLangue(List<PokemonLangue> result) {
-        ArrayList<ModelPokemonLangue> listPokemon = new ArrayList<>();
+    private HashMap<Integer, ModelPokemonLangue> createModelPokemonLangue(List<PokemonLangue> result) {
+        HashMap<Integer, ModelPokemonLangue> hashMapPokemon = new HashMap<>();
         for (PokemonLangue r : result) {
             Pokemon pokemon = r.getPokemon();
 
-            ArrayList<ModelType> listType = getListModelType(pokemon.getTypePokemonCollection());
+            ArrayList<ModelType> listType = getArrayListModelType(pokemon.getTypePokemonCollection());
 
-            ArrayList<ModelType> listFaiblesse = getListModelType(pokemon.getTypePokemonCollection1());
+            ArrayList<ModelType> listFaiblesse = getArrayListModelType(pokemon.getTypePokemonCollection1());
             
-            ArrayList<ModelTalent> listTalent = getListModelTalent(pokemon.getTalentPokemonCollection());
+            ArrayList<ModelTalent> listTalent = getArrayListModelTalent(pokemon.getTalentPokemonCollection());
 
             ModelCategorie newCategorie = new ModelCategorie(pokemon.getIdcategorie().getIdcategorie());
             ModelPokemon newPokemon = new ModelPokemon(pokemon.getIdpokemon(), pokemon.getCheminImg(), pokemon.getTaille().doubleValue(), pokemon.getPoids().doubleValue(), pokemon.getPointsVie(), pokemon.getPointsAttaque(), pokemon.getPointsDefense(), pokemon.getPointsASpeciale(), pokemon.getPointsDSpeciale(), pokemon.getPointsVitesse(), pokemon.getPrix().doubleValue(), newCategorie, listType, listFaiblesse, listTalent);
             ModelLangue newLangue = new ModelLangue(r.getLangue().getIdlangue(), r.getLangue().getCodelangue(), r.getLangue().getLibellelangue());
             ModelPokemonLangue newPokemonLangue = new ModelPokemonLangue(newLangue, newPokemon, r.getLibellepokemon(), r.getDescriptionpokemon());
-            listPokemon.add(newPokemonLangue);
+            hashMapPokemon.put(pokemon.getIdpokemon() ,newPokemonLangue);
         }
-        return listPokemon;
+        return hashMapPokemon;
     }
 
-    private ArrayList<ModelTalent> getListModelTalent(Collection<TalentPokemon> collection) {
+    private ArrayList<ModelTalent> getArrayListModelTalent(Collection<TalentPokemon> collection) {
         ArrayList<ModelTalent> listTalent = new ArrayList<>();
         for (TalentPokemon talent : collection) {
             ModelTalent newTalent = convertToModelTalent(talent);
@@ -76,7 +77,7 @@ public class PokemonLangueFacade extends AbstractFacade<PokemonLangue> implement
         return listTalent;
     }
 
-    private ArrayList<ModelType> getListModelType(Collection<TypePokemon> collection) {
+    private ArrayList<ModelType> getArrayListModelType(Collection<TypePokemon> collection) {
         ArrayList<ModelType> listType = new ArrayList<>();
         for (TypePokemon type : collection) {
             ModelType newType = convertToModelType(type);

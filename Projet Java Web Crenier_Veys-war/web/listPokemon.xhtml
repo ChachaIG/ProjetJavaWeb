@@ -21,23 +21,23 @@
         <h:form>
             <div class="pokedex">
                 <ul>
-                    <c:forEach items="#{pokemonController.listPokemonByLangue}" var="pokemon">
+                    <c:forEach items="#{pokemonController.listPokemonByLangue}" var="result">
                         <li>
-                            <h:commandLink action="#{pokemonController.details(pokemon)}">
+                            <h:commandLink action="#{pokemonController.details(result.value)}">
                                 <div class="pokemon-image">
-                                    <h:graphicImage url="#{pokemon.pokemon.cheminImg}" />
+                                    <h:graphicImage url="#{result.value.pokemon.cheminImg}" />
                                 </div>
                                 <div class="pokemon-info">
                                     <span class="id">
                                         <span class="numero">
                                             <span>No.</span>
-                                            <h:outputText value="#{pokemon.pokemon.fullIdPokemon}"/>
+                                            <h:outputText value="#{result.value.pokemon.fullIdPokemon}"/>
                                         </span>
                                     </span>
-                                    <h:outputText class="nom" value="#{pokemon.libellePokemon}"/>
+                                    <h:outputText class="nom" value="#{result.value.libellePokemon}"/>
                                     <div class="types">
-                                        <c:forEach items="#{pokemon.pokemon.types}" var="type">
-                                            <h:outputText class="type #{type.getClassType()}" value="#{typeController.getOneTypeByLangue(type).libelleType}"/>
+                                        <c:forEach items="#{result.value.pokemon.types}" var="type">
+                                            <h:outputText class="type #{type.getClassType()}" value="#{typeController.getOneTypeByLangue(type.idType).libelleType}"/>
                                         </c:forEach>
                                     </div>
                                 </div>

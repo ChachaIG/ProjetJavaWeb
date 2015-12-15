@@ -2,12 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <f:loadBundle basename="languages.lang" var="lang"/>
+    
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./css/general.css"/>
         <h:outputStylesheet name="./css/navigation.css"/>
+        <h:outputScript name="./script/jquery-2.1.4.min.js"/>
+        <h:outputScript name="./script/main.js"/>
         <ui:insert name="head"></ui:insert>
         <title>Pokebuy</title>
     </h:head>
@@ -24,77 +29,73 @@
             <nav>
                 <div class="nav">
                     <ul>
-                    <!--c:forEach items="{typeController.getList()}" var="type">
-                            <li class="accueil">
-                                <h:link outcome="index.xhtml">
-                                    <span class="fill"></span>
-                                    <span class="icon icon_home"></span>
-                                    <h:outputText class="title" value="{type.getLibelleType()}"/>
-                                </h:link>
-                            </li>
-                        </c:forEach-->
                         <li class="accueil">
                             <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_home"></span>
-                                <span class="title">Page d'accueil</span>
+                                <span class="title">
+                                    <h:outputText value="#{lang.home}" />
+                                </span>
                             </h:link>
                         </li>
                         <li class="menu1">
                             <h:link outcome="listPokemon.xhtml" class="active">
                                 <span class="fill"></span>
                                 <span class="icon icon_pokeball"></span>
-                                <span class="title">Pokédex</span>
+                                <span class="title">
+                                    <h:outputText value="#{lang.menu1}" />
+                                </span>
                             </h:link>
-                            <!--ul class="hidden">
-                                <li>
-                                    <h:link outcome="index.xhtml">
-                                        <span class="title">Pokédex</span>
-                                    </h:link>
-                                </li>
-                                <li>
-                                    <h:link outcome="index.xhtml">
-                                        <span class="title">Pokédex</span>
-                                    </h:link>
-                                </li>
-                            </ul-->
                         </li>
                         <li class="menu2">
-                            <h:link outcome="panier.xhtml">
+                            <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_pokemontv"></span>
-                                <span class="title">Panier</span>
+                                <span class="title">
+                                    <h:outputText value="#{lang.menu2}" />
+                                </span>
                             </h:link>
                         </li>
                         <li class="menu3">
                             <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_pokemontv"></span>
-                                <span class="title">Mini-jeux</span>
+                                <span class="title">
+                                    <h:outputText value="Promotions" />
+                                </span>
                             </h:link>
                         </li>
                         <li class="menu4">
-                            <h:link outcome="index.xhtml">
+                            <h:link outcome="panier.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_cards"></span>
-                                <span class="title">Jeu de Cartes à Collectionner</span>
+                                <span class="title">
+                                    <h:outputText value="Panier" />
+                                </span>
                             </h:link>
                         </li>
                         <li class="menu5">
-                            <h:link outcome="index.xhtml">
+                            <h:link outcome="inscription.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_videogame"></span>
-                                <span class="title">Jeux vidéo</span>
+                                <span class="title">
+                                    <h:outputText value="Inscription" />
+                                </span>
                             </h:link>
                         </li>
                         <li class="menu6">
                             <h:link outcome="index.xhtml">
                                 <span class="fill"></span>
                                 <span class="icon icon_event"></span>
-                                <span class="title">Événements</span>
+                                <span class="title">
+                                    <h:outputText value="Contact" />
+                                </span>
                             </h:link>
                         </li>
                     </ul>
+                </div>
+                <div id="panier-logo">
+                    <a class="cd-img-replace" href="#0">Cart</a>
                 </div>
             </nav>
         </header>
@@ -106,6 +107,37 @@
             </section>
         </div>
 
+        <div id="cd-shadow-layer"></div>
+
+        <div id="cd-cart"> 
+
+            <h1><h:outputText value="Mon Panier"/></h1>
+
+            <h:dataTable id="panierDroite" class="cd-cart-items" var="item" value="#{panierController.panier}">
+                <h:column>
+                    <h:graphicImage class="cd-img" url="#{item.pokemon.cheminImg}"/>
+                </h:column>
+                <h:column>
+                    <span class="cd-qty"><h:outputText value="#{item.quantite}x "/></span>
+                    <h:outputText value="#{pokemonController.getOnePokemonByLangue(item.pokemon.idPokemon).libellePokemon}" />
+                </h:column>
+                <h:column>
+                    <div class="cd-price">
+                        <h:outputText value="#{item.prixUnitaire}€"/>
+                    </div>
+                </h:column>
+            </h:dataTable>
+            
+            <div class="cd-cart-total">
+                <p>
+                    <h:outputText value="Total" />
+                    <span>39.96€ </span>
+                </p>
+            </div>
+            
+            <a href="#0" class="checkout-btn">Checkout</a>
+            <p class="cd-go-to-cart"><h:link outcome="panier.xhtml" value="Go to cart page"/></p>
+        </div>
         <footer>
             <ui:insert name="bottom">Bottom</ui:insert>
         </footer>

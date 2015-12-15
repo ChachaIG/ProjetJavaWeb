@@ -4,6 +4,7 @@ package facade;
 import entity.TypeLangue;
 import entity.TypePokemon;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -30,25 +31,25 @@ public class TypeLangueFacade extends AbstractFacade<TypeLangue> implements Type
     }
 
     @Override
-    public ArrayList<ModelTypeLangue> getListTypeByLangue(Integer idLangue) {
+    public HashMap<Integer, ModelTypeLangue> getListTypeByLangue(Integer idLangue) {
         Query query;
         query = em.createNamedQuery("TypeLangue.findByIdlangue");
         query.setParameter("idlangue", idLangue);
 
         List<TypeLangue> result = query.getResultList();
 
-        return createArrayListModelTypeLangue(result);
+        return createModelTypeLangue(result);
     }
 
-    private ArrayList<ModelTypeLangue> createArrayListModelTypeLangue(List<TypeLangue> list) {
+    private HashMap<Integer, ModelTypeLangue> createModelTypeLangue(List<TypeLangue> list) {
 
-        ArrayList<ModelTypeLangue> listType = new ArrayList<>();
+        HashMap<Integer, ModelTypeLangue> listType = new HashMap<>();
 
         for (TypeLangue l : list) {
             ModelTypeLangue newTypeLangue = convertToModelTypeLangue(l);
-            listType.add(newTypeLangue);
+            listType.put(l.getTypePokemon().getIdtype(), newTypeLangue);
         }
-
+        
         return listType;
     }
 

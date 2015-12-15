@@ -6,8 +6,10 @@
 package facade;
 
 import entity.Localite;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
+import model.ModelLocalite;
 
 /**
  *
@@ -29,5 +31,7 @@ public interface LocaliteFacadeLocal {
     List<Localite> findRange(int[] range);
 
     int count();
+
+    ArrayList<ModelLocalite> getLocalitesByPostCode(int postCode);
     
 }

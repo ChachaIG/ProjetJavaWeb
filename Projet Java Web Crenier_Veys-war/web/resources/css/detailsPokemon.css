@@ -183,7 +183,8 @@
     text-align: center;
 }
 
-.container section .pokemon-details .pokemon-prix span {
+.container section .pokemon-details .pokemon-prix .pokemon-prix-left span, 
+.container section .pokemon-details .pokemon-prix a {
     color: #ffffff;
     border-radius: 5px;
     font-size: 160%;
@@ -195,12 +196,11 @@
     display: inline-block;
     text-align: center;
     padding: 5% 15%;
+    text-decoration: none;
+    height: 34px;
 }
 
-.container section .pokemon-details .pokemon-prix .prix {
-    background-color: #ee6b2f;
-}
-
+.container section .pokemon-details .pokemon-prix .prix, 
 .container section .pokemon-details .pokemon-prix .acheter {
     background-color: #ee6b2f;
 }
@@ -364,5 +364,80 @@
     margin-left: 8px;
     overflow: hidden;
     padding: 15px;
+    z-index: 4;
 }
 
+
+
+
+
+.acheter {
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background-color: #46b29d;
+}
+
+ .acheter span {
+  /* this is the button text message */
+  position: absolute;
+  left: 0;
+  width: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+  
+  /* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+}
+ .acheter svg {
+  /* this is the check icon */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  /* move the icon on the right - outside the button */
+  -webkit-transform: translateX(50%) translateY(-50%);
+  -moz-transform: translateX(50%) translateY(-50%);
+  -ms-transform: translateX(50%) translateY(-50%);
+  -o-transform: translateX(50%) translateY(-50%);
+  transform: translateX(50%) translateY(-50%);
+  
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+}
+ .acheter.is-added span {
+  /* product added to the cart - hide text message on the left with no transition*/
+  color: transparent;
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+  
+  -webkit-transition: -webkit-transform 0s;
+  -moz-transition: -moz-transform 0s;
+  transition: transform 0s;
+}
+ .acheter.is-added svg {
+  /* product added to the cart - move the svg back inside the button */
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  
+  -webkit-transition: -webkit-transform 0s;
+  -moz-transition: -moz-transform 0s;
+  transition: transform 0s;
+}

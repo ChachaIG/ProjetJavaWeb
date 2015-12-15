@@ -2,7 +2,7 @@ package controller;
 
 import businessSessionBean.PokemonManagerLocal;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -17,7 +17,7 @@ public class CategorieController implements Serializable {
     @EJB
     private PokemonManagerLocal pokemonSessionBean;
     
-    private ArrayList<ModelCategorieLangue> listCategorie = null;
+    private HashMap<Integer, ModelCategorieLangue> listCategorie = new HashMap<>();
     
     public CategorieController() {
     }
@@ -26,22 +26,14 @@ public class CategorieController implements Serializable {
         return pokemonSessionBean;
     }
 
-    public ArrayList<ModelCategorieLangue> getListCategorieByLangue() {
-        listCategorie = getPokemonSessionBean().getListCategorieByLangue(1);
+    public HashMap<Integer, ModelCategorieLangue> getListCategorieByLangue() {
+        if (listCategorie.isEmpty())
+            listCategorie = getPokemonSessionBean().getListCategorieByLangue(1);
         return listCategorie;
     }
     
-    public ModelCategorieLangue getOneCategorieByLangue(ModelCategorie categorie) {
-        if (listCategorie == null){
-            listCategorie = getListCategorieByLangue();
-        }
-        
-        Iterator<ModelCategorieLangue> iterator = listCategorie.iterator();
-        int i = 0;
-        while (iterator.hasNext() && !iterator.next().getCategorie().getIdCategorie().equals(categorie.getIdCategorie())) {
-            i++;
-        }
-        return listCategorie.get(i);
+    public ModelCategorieLangue getOneCategorieByLangue(int idCategorie) {
+        return getListCategorieByLangue().get(idCategorie);
     }
 
 }
