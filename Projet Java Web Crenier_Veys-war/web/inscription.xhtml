@@ -14,14 +14,14 @@
         <h:form>
             <div class="login">
                 <div class="connection">
-                    <h1><h:outputText value="Connection"/></h1>
+                    <h1><h:outputText value="#{lang.connexion}"/></h1>
                     <span class="input valider">
-                        <h:inputText styleClass="input_field" required="true" requiredMessage="Please enter your email address." validatorMessage="Invalid email format" id="input9">
+                        <h:inputText styleClass="input_field" required="true" requiredMessage="#{lang.entrerVotreMail}" validatorMessage="#{lang.emailInvalide}" id="input9">
                             <f:ajax event="focus" execute="@this" render="messageInput9" />
                             <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
                         </h:inputText>
                         <label class="input_label" for="input9">
-                            <span class="input_label-content" data-content="Login"><h:outputText value="Login" /></span>
+                            <span class="input_label-content" data-content="Login"><h:outputText value="#{lang.login}" /></span>
                         </label>
                     </span>
                     <p class="messageErreur">
@@ -30,61 +30,61 @@
                     <span class="input">
                         <h:inputSecret class="input_field" id="input10" />
                         <label class="input_label" for="input10">
-                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="Mot de passe" /></span>
+                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="#{lang.motDePasse}" /></span>
                         </label>
                     </span>
                     <div class="newConnection">
-                        <h:outputText class="btnConnection" value="Se connecter" />
+                        <h:outputText class="btnConnection" value="#{lang.seConnecter}" />
                     </div>
                 </div>
                 <div class="inscription">
-                    <h1><h:outputText value="Inscription"/></h1>
+                    <h1><h:outputText value="#{lang.inscription}"/></h1>
                     <span class="input">
                         <h:inputText class="input_field" id="input1" />
                         <label class="input_label" for="input1">
-                            <span class="input_label-content" data-content="Nom"><h:outputText value="Nom" /></span>
+                            <span class="input_label-content" data-content="Nom"><h:outputText value="#{lang.nom}" /></span>
                         </label>
                     </span>
                     <span class="input">
                         <h:inputText class="input_field" id="input2" />
                         <label class="input_label" for="input2">
-                            <span class="input_label-content" data-content="Prénom"><h:outputText value="Prénom" /></span>
+                            <span class="input_label-content" data-content="Prénom"><h:outputText value="#{lang.prenom}" /></span>
                         </label>
                     </span>
                     <span class="input">
                         <h:inputText class="input_field" id="input3" />
                         <label class="input_label" for="input3">
-                            <span class="input_label-content" data-content="Adresse mail"><h:outputText value="Adresse mail" /></span>
+                            <span class="input_label-content" data-content="Adresse mail"><h:outputText value="#{lang.adresseMail}" /></span>
                         </label>
                     </span>
                     <span class="input">
                         <h:inputSecret class="input_field" id="input4" />
                         <label class="input_label" for="input4">
-                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="Mot de passe" /></span>
+                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="#{lang.motDePasse}" /></span>
                         </label>
                     </span>
                                         <span class="input">
                         <h:inputSecret class="input_field" id="input5" />
                         <label class="input_label" for="input5">
-                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="Mot de passe" /></span>
+                            <span class="input_label-content" data-content="Mot de passe"><h:outputText value="#{lang.motDePasse}" /></span>
                         </label>
                     </span>
                     <span class="input">
                         <h:inputText class="input_field" id="input6" />
                         <label class="input_label" for="input6">
-                            <span class="input_label-content" data-content="Numéro de téléphone"><h:outputText value="Numéro de téléphone" /></span>
+                            <span class="input_label-content" data-content="Numéro de téléphone"><h:outputText value="#{lang.numTel}" /></span>
                         </label>
                     </span>
                     <span class="input">
                         <h:inputText class="input_field" id="input7" />
                         <label class="input_label" for="input7">
-                            <span class="input_label-content" data-content="Adresse"><h:outputText value="Adresse" /></span>
+                            <span class="input_label-content" data-content="Adresse"><h:outputText value="#{lang.adresse}" /></span>
                         </label>
                     </span>
                     <span class="input postCodeCity">
                         <div class="postCode">
                             <label class="label_input" for="input8">
-                                <span class="input_label-content" data-content="Code Postal"><h:outputText value="Code Postal" /></span>
+                                <span class="input_label-content" data-content="Code Postal"><h:outputText value="#{lang.codePostal}" /></span>
                             </label>
                             <h:inputText class="field_input" id="input8" value="#{clientController.postCode}">
                                 <f:ajax event="blur" execute="@form" render="selectMenu"/>
@@ -98,7 +98,7 @@
                     </span>
 
                     <div class="newInscription">
-                        <h:outputText class="btnInscription" value="S'inscrire" />
+                        <h:outputText class="btnInscription" value="#{lang.sInscrire}" />
                     </div>
                 </div>
             </div>

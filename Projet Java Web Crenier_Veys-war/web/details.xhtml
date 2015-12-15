@@ -63,7 +63,7 @@
                 <div class="pokemon-details-info">
                     <div class="types">
                         <h3>
-                            <h:outputText value="Type"/>
+                            <h:outputText value="#{lang.type}"/>
                         </h3>
                         <c:forEach items="#{pokemonController.currentPokemon.pokemon.types}" var="type">
                             <h:outputText class="type #{type.getClassType()}" value="#{typeController.getOneTypeByLangue(type.idType).libelleType}"/>
@@ -72,7 +72,7 @@
 
                     <div class="faiblesses">
                         <h3>
-                            <h:outputText value="Faiblesse(s)"/>
+                            <h:outputText value="#{lang.faiblesse}"/>
                         </h3>
                         <c:forEach items="#{pokemonController.currentPokemon.pokemon.faiblesses}" var="faiblesse">
                             <h:outputText class="type #{faiblesse.getClassType()}" value="#{typeController.getOneTypeByLangue(faiblesse.idType).libelleType}"/>
@@ -91,7 +91,7 @@
                     <div class="pokemon-prix-right">
                         <h:form>
                             <h:commandLink class="acheter">
-                                <span><h:outputText value="Acheter"/></span>
+                                <span><h:outputText value="#{lang.acheter}"/></span>
                                 <f:ajax event="click" listener="#{panierController.getAjoutPanier(pokemonController.currentPokemon.pokemon, 1)}" render="panierDroite"/>
                                 <svg x="0px" y="0px" width="60px" height="60px" viewBox="0 0 32 32">
                                     <path stroke-dasharray="19.79 19.79" stroke-dashoffset="19.79" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
@@ -102,15 +102,15 @@
                 </div>
                 <div class="pokemon-description-info">
                     <div class="pokemon-description-info-left">
-                        <h:outputText class="titre" value="Taille" />
+                        <h:outputText class="titre" value="#{lang.taille}" />
                         <h:outputText class="valeur" value="#{pokemonController.currentPokemon.pokemon.taille} m" />
-                        <h:outputText class="titre" value="Poids" />
+                        <h:outputText class="titre" value="#{lang.poids}" />
                         <h:outputText class="valeur" value="#{pokemonController.currentPokemon.pokemon.poids} kg" />
                     </div>
                     <div class="pokemon-description-info-right">
-                        <h:outputText class="titre" value="Catégorie" />
+                        <h:outputText class="titre" value="#{lang.categorie}" />
                         <h:outputText class="valeur" value="#{categorieController.getOneCategorieByLangue(pokemonController.currentPokemon.pokemon.categorie.idCategorie).libelleCategorie}" />
-                        <h:outputText class="titre" value="Talent(s)" />
+                        <h:outputText class="titre" value="#{lang.talent})" />
                         <c:forEach items="#{pokemonController.currentPokemon.pokemon.talents}" var="talent">
                             <span class="talent">
                                 <h:outputText class="valeurTalent" value="#{talentController.getOneTalentByLangue(talent.idTalent).libelleTalent}" />
@@ -125,7 +125,7 @@
 
                 </div>
                 <div class="pokemon-stats">
-                    <h3><h:outputText value="Statistiques"/></h3>
+                    <h3><h:outputText value="#{lang.stat}"/></h3>
                     <ul>
                         <li>
                             <ul>
@@ -141,7 +141,7 @@
                                 <li></li>
                                 <li></li>
                             </ul>
-                            <span>PV</span>
+                            <span><h:outputText value="#{lang.pv}"/></span>
                         </li>
 
                         <li>
@@ -158,7 +158,7 @@
                                 <li></li>
                                 <li></li>
                             </ul>
-                            <span>Attaque</span>
+                            <span><h:outputText value="#{lang.attaque}"/></span>
                         </li>
 
                         <li>
@@ -175,7 +175,7 @@
                                 <li></li>
                                 <li></li>
                             </ul>
-                            <span>Défense</span>
+                            <span><h:outputText value="#{lang.defense}"/></span>
                         </li>
 
                         <li>
@@ -192,7 +192,7 @@
                                 <li></li>
                                 <li></li>
                             </ul>
-                            <span>Attaque Spéciale</span>
+                            <span><h:outputText value="#{lang.attaqueSpe}"/></span>
                         </li>
 
                         <li>
@@ -209,7 +209,7 @@
                                 <li></li>
                                 <li></li>
                             </ul>
-                            <span>Défense Spéciale</span>
+                            <span><h:outputText value="#{lang.defenseSpe}"/></span>
                         </li>
 
                         <li>
@@ -226,7 +226,7 @@
                                 <li></li>
                                 <li></li>
                             </ul>
-                            <span>Vitesse</span>
+                            <span><h:outputText value="#{lang.vitesse}"/></span>
                         </li>
                     </ul>
                 </div>
