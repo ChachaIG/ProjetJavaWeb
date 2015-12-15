@@ -53,7 +53,7 @@ public class PokemonController implements Serializable {
     
     public ModelPokemonLangue getNext() {
         int i = getCurrentPokemon().getPokemon().getIdPokemon().intValue() + 1;
-        if (i >= getListPokemonByLangue().size()) i = 1;
+        if (i > getListPokemonByLangue().size()) i = 1;
         return getListPokemonByLangue().get(i);
     }
     

@@ -2,9 +2,12 @@ package controller;
 
 import businessSessionBean.PokemonManagerLocal;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.validator.ValidatorException;
 import model.ModelClient;
 import model.ModelLocalite;
 
@@ -43,25 +46,11 @@ public class ClientController {
     }
 
     public ArrayList<ModelLocalite> getLocaliteByPostCode() {
-        String postCodeString = Integer.toString(getPostCode());
-        if (!postCodeString.isEmpty()) {
-            if (!postCodeString.matches("[0-9]{4}")) {
-                return new ArrayList<>();
-            } else {
-                if (getPostCode() < 1000 || getPostCode() > 9999) {
-                   return new ArrayList<>();
-                } else {
-                    ArrayList<ModelLocalite> newLocalites = getPokemonSessionBean().getLocalitesByPostCode(getPostCode());
-                    if (newLocalites.size() > 0) {
-                        return newLocalites;
-                    } else {
-                        return new ArrayList<>();
-                    }
-                }
-            }
+        ArrayList<ModelLocalite> newLocalites = getPokemonSessionBean().getLocalitesByPostCode(getPostCode());
+        if (newLocalites.size() > 0) {
+            return newLocalites;
         } else {
-        return new ArrayList<>();
+            return new ArrayList<>();
         }
     }
-
 }

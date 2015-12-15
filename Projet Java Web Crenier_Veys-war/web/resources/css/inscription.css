@@ -67,7 +67,7 @@
 .label_input {
     content: attr(data-content);
     position: absolute;
-    top: -75%;
+    top: -68%;
     left: 0;
     color: #1B53BA;
     font-weight: 800;
@@ -264,7 +264,7 @@
 
 .messageErreur {
     font-weight: bold;
-    color:#da6484;
+    color:#E3350D;
     margin:0;
     text-align: right;
 }
